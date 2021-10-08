@@ -30,4 +30,14 @@ class Posts extends CI_Controller {
                 $this->load->view('Posts/view', $data);
                 $this->load->view('templates/footer', $data);
         }
+
+        public function create() {
+
+                $data['title'] = "Create Post";
+                
+                
+                $this->load->view('templates/header', $data);
+                $this->load->view('Posts/create', $data);
+                $this->load->view('templates/footer', $data);
+	}
 }
