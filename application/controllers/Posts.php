@@ -16,4 +16,18 @@ class Posts extends CI_Controller {
                 $this->load->view('Posts/index', $data);
                 $this->load->view('templates/footer', $data);
 	}
+
+        public function view($slug = NULL){
+
+                $data['post'] = $this->Post_model->get_post($slug);
+
+                if (empty($data['post'])){
+                        show_404();
+                }
+                $data['title'] = $data['post']['title'];
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('Posts/view', $data);
+                $this->load->view('templates/footer', $data);
+        }
 }
