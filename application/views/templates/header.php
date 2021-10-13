@@ -31,11 +31,12 @@
                         <a class="nav-link" href="<?php echo base_url();?>posts">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>create">Create</a>
+                        <a class="nav-link" href="<?php echo base_url();?>posts/create">Create</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+<div class="container">
+    
