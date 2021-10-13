@@ -9,7 +9,7 @@ class Posts extends CI_Controller {
 
 	public function index() {
 
-                $data['title'] = "Latest Posts";
+                $data['title'] = ucfirst("latest Posts");
                 $data['posts'] = $this->Post_model->get_post();
                 
                 $this->load->view('templates/header', $data);
@@ -36,14 +36,15 @@ class Posts extends CI_Controller {
                 $data['title'] = "Create Post";
                 
                 $this->form_validation->set_rules('title', 'Title', 'required');
-                $this->form_validation->set_rules('text', 'Text', 'required');
+                $this->form_validation->set_rules('body', 'Body', 'required');
 
                 if ($this->form_validation->run() === FALSE) {
                         $this->load->view('templates/header', $data);
                         $this->load->view('Posts/create', $data);
                         $this->load->view('templates/footer', $data);
                 } else {
-                        
+                        $this->Post_model->create_post();
+                        $this->load->view('posts/success');
                 }
                 
 	}
